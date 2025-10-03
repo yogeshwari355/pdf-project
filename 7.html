@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Haldiram’s | Catalogues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --gold:#ffca55;
+    --bg:#0f1e2f;
+    --bg2:#13253a;
+    --card:#102538;
+    --line:#24435f;
+    --rad:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;background:
+      radial-gradient(1400px 800px at 50% -15%, var(--bg2), var(--bg)),
+      linear-gradient(0deg, #0e1b2c, #0e1b2c);
+    color:#eaeef6;font-family:Poppins,system-ui,Segoe UI,Arial,sans-serif;overflow-x:hidden;
+  }
+
+  /* Header with centered logo (dark gradient kept, logo bigger) */
+  .topbar{
+    position:sticky;top:0;z-index:30;
+    background:linear-gradient(180deg, rgba(19,37,58,.95), rgba(19,37,58,.75));
+    border-bottom:1px solid #ffffff22;box-shadow:0 8px 24px #0007;
+  }
+  .topwrap{
+    max-width:1200px;margin:0 auto;padding:12px 16px;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;
+  }
+  .spacer{height:1px}
+  .logo{
+    height:96px; /* increased size */
+    width:auto;object-fit:contain;justify-self:center;display:block;
+    filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  }
+
+  /* Content */
+  .wrap{max-width:1200px;margin:0 auto;padding:16px 16px 60px;}
+  h1{margin:10px 0 18px;text-align:center;font-size:clamp(20px,3.4vw,30px);color:var(--gold);text-shadow:0 0 12px #ffcf6a55}
+
+  .diyas{display:flex;justify-content:center;gap:24px;margin:10px 0 24px;} /* space above cards */
+  .diya{width:48px;height:26px;background:#8a3e12;border-radius:22px 22px 10px 10px/16px 16px 8px 8px;position:relative;box-shadow:inset 0 -4px 0 #5d2609,0 6px 12px rgba(0,0,0,.25)}
+  .diya:before{content:"";position:absolute;left:50%;top:-12px;transform:translateX(-50%);width:12px;height:20px;background:radial-gradient(circle at 50% 65%, #fff9dc 0%, #ffd56f 55%, #ff9b3d 75%, transparent 76%);border-radius:50% 50% 50% 50%/70% 70% 40% 40%;animation:flick .9s ease-in-out infinite}
+  @keyframes flick{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.1)}}
+
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
+  .card{grid-column:span 12;background:linear-gradient(180deg,#132d49,#0f253e);border:1px solid var(--line);
+    border-radius:var(--rad);box-shadow:0 10px 28px rgba(0,0,0,.35);overflow:hidden;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+  @media(min-width:560px){.card{grid-column:span 6}}
+  @media(min-width:960px){.card{grid-column:span 3}}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+  .thumb{position:relative;width:100%;padding-top:135%;background:#0b1726;overflow:hidden}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.001)}
+  .badge{position:absolute;top:8px;left:8px;background:#091422cc;color:#ffe8b8;border:1px solid #ffffff44;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800}
+
+  .meta{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 12px}
+  .name{font-weight:700;font-size:13px;color:#ffdca0}
+  .btn{padding:9px 12px;border-radius:10px;border:1px solid #ffcf7a;background:linear-gradient(90deg,#ffda8e,#ffbf66);color:#422500;font-weight:800;text-decoration:none}
+  footer{color:#c8d6e8;text-align:center;font-size:12px;padding:16px 10px 26px}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topwrap">
+      <div class="spacer"></div>
+      <img class="logo" src="haldiram final logo.png" alt="Haldiram’s">
+      <div class="spacer"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Explore and open a catalogue</h1>
+
+    <div class="diyas" aria-hidden="true">
+      <div class="diya"></div><div class="diya"></div><div class="diya"></div>
+    </div>
+
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <footer>Haldiram's.</footer>
+
+<script>
+/* Provide five imageSrc values and matching PDF URLs. */
+const items = [
+  {
+    name:"Gifting by Haldiram’s 2025",
+    imageSrc:"second.jpg",
+    pdfUrl:"Gifting By Haldiram's -Catalouge 2025 Online (2).pdf"
+  },
+  {
+    name:"Festive Sweet Collection",
+    imageSrc:"first.jpg",
+    pdfUrl:"Festive Sweet Collection - Rev1_compressed.pdf"
+  },
+  
+  {
+    name:"Mix Mithai Boxes",
+    imageSrc:"fifth.jpg",
+    pdfUrl:"Mix Mithai Box Festive Collection. (1)-compressed.pdf"
+  },
+  {
+    name:"House of Mishti – Fusion Pops",
+    imageSrc:"third.jpg",
+    pdfUrl:"House of Mishti - Fusion Pops (Corporate Catalogue) 350 (1)_compressed.pdf"
+  },
+{
+    name:"GT Hampers",
+    imageSrc:"https://images.unsplash.com/photo-1604446063781-9a9d37f1ced1?q=80&w=1200",
+    pdfUrl:"GT-Hampers.pdf"
+  }
+];
+
+const grid = document.getElementById('grid');
+
+items.forEach((it) => {
+  const card = document.createElement('article');
+  card.className='card';
+  card.addEventListener('click', () => window.open(it.pdfUrl,'_blank','noopener'));
+
+  const thumb = document.createElement('div'); thumb.className='thumb';
+  const badge = document.createElement('div'); badge.className='badge'; badge.textContent='PDF';
+  const img = document.createElement('img'); img.alt = it.name; img.src = it.imageSrc;
+
+  thumb.append(badge, img);
+
+  const meta = document.createElement('div'); meta.className='meta';
+  const name = document.createElement('div'); name.className='name'; name.textContent = it.name;
+  const btn = document.createElement('a'); btn.className='btn'; btn.href=it.pdfUrl; btn.target='_blank'; btn.rel='noopener'; btn.textContent='Open';
+
+  meta.append(name, btn);
+  card.append(thumb, meta);
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
